@@ -10,6 +10,7 @@ from vk_integ import *
 from imgur_integ import *
 from wolfram_integ import *
 #from google_integ import *
+from accuw_integ import *
 from games import *
 from config import discord_token
 from datetime import datetime
@@ -134,5 +135,9 @@ async def on_message(message):
        tag=str(message.content[5:])
        pic=Search_pic(tag)
        await client.send_message(message.channel,pic)
+  
+  elif message.content.startswith('!weather'):
+       result=Daily_Forecast()
+       await client.send_message(message.channel,result)
  
 client.run(discord_token)
