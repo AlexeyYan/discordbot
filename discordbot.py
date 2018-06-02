@@ -5,6 +5,7 @@ import pickle
 import os
 import requests
 import json
+from nsfc import *
 from vk_integ import *
 from imgur_integ import *
 from wolfram_integ import *
@@ -128,5 +129,10 @@ async def on_message(message):
 
   elif message.author.id=='377142726962970634' and message.content.startswith('Я спать'):
        await client.send_message(message.channel,'Тогда и я пойду')
+  
+  elif message.content.startswith('%nsf'):
+       tag=str(message.content[5:])
+       pic=Search_pic(tag)
+       await client.send_message(message.channel,pic)
  
 client.run(discord_token)
