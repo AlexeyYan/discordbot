@@ -17,3 +17,6 @@ cse_id='017950210039029232413:visz6a9uxaq'
 
 #for Yandex
 yandex_token='AQAAAAAcFo-XAAUDBL1HwhUWyUBQlh_MCvvSQZQ'
+
+#for AccuWeather
+accuw_key='MviyoDzWFye0KIgtGX3m4vQLBaRlVnDp'

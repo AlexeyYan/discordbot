@@ -9,7 +9,7 @@ from nsfc import *
 from vk_integ import *
 from imgur_integ import *
 from wolfram_integ import *
-from google_integ import *
+#from google_integ import *
 from games import *
 from config import discord_token
 from datetime import datetime
@@ -103,10 +103,10 @@ async def on_message(message):
        answer = Question(question)
        await client.send_message(message.channel,answer)
 
-  elif message.content.startswith('!google'):
-       message=message.content[8:]
-       res=Google_Search(message)
-       print(res)
+ # elif message.content.startswith('!google'):
+  #     message=message.content[8:]
+   #    res=Google_Search(message)
+    #   print(res)
 
   elif message.content.startswith('!dice'):
        cube1, cube2 = Dice()
