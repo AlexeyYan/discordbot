@@ -6,8 +6,13 @@ def Daily_Forecast():
     r=requests.get('http://dataservice.accuweather.com/forecasts/v1/daily/5day/28580', params={'apikey':accuw_key, 'language':'ru'})
     date=r.json()['Headline']['EffectiveDate']
     day=r.json()['DailyForecasts'][1]
-    temperature=str(day['Temperature']['Minimum']['Value'])+' - '+str(day['Temperature']['Maximum']['Value'])
+    temperature=str(int((day['Temperature']['Minimum']['Value']-32)/1.8))+' - '+str(int((day['Temperature']['Maximum']['Value']-32)/1.8))
     dayw=day['Day']['IconPhrase']
+    icon=day['Day']['Icon']
+    print(icon)
+    if icon==1: dayw+=':sunny:'
+    elif icon==4: dayw+=' :partly_sunny:'
+    elif icon==17: dayw+=':partly_sunny: :thunder_cloud_rain:' 
     nightw=day['Night']['IconPhrase']
-    result=str(date)+'```\n'+'Днём: '+dayw+'\n'+'Ночью: '+nightw+'\n'+'Температура в течении суток: '+temperature+'\n```'
+    result=str(date)+'\n'+'Ночью: '+nightw+'\n'+'Днём: '+dayw+'\n'+'Температура в течении суток: '+temperature+u' \u2103'
     return result

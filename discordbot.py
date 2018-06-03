@@ -139,5 +139,7 @@ async def on_message(message):
   elif message.content.startswith('!weather'):
        result=Daily_Forecast()
        await client.send_message(message.channel,result)
- 
+  
+  elif message.content.startswith('!test'):
+      await client.send_message(message.channel,':sunny:')
 client.run(discord_token)
