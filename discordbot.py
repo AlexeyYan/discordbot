@@ -9,6 +9,7 @@ from nsfc import *
 from vk_integ import *
 from imgur_integ import *
 from wolfram_integ import *
+from funs import *
 #from google_integ import *
 from accuw_integ import *
 from games import *
@@ -114,14 +115,14 @@ async def on_message(message):
        name=message.author.name
        await client.send_message(message.channel, name+': выпало '+cube1+' и '+cube2)
 
-  elif message.content.startswith('!wolf'):
-       question=str(message.content[6:])
-       if message.content.startswith('!wolf plot'):
-           answer=Plot(question)
-       elif message.content.startswith('!wolf solve'):
-           answer=Solve(question)
-       else: answer = Question(question)
-       await client.send_message(message.channel,answer)
+  #elif message.content.startswith('!wolf'):
+   #    question=str(message.content[6:])
+    #   if message.content.startswith('!wolf plot'):
+     #      answer=Plot(question)
+      # elif message.content.startswith('!wolf solve'):
+       #    answer=Solve(question)
+       #else: answer = Question(question)
+       #await client.send_message(message.channel,answer)
   
   elif message.content.startswith('!flip'):
        if random.randint(0,1000)<=453 : ans = 'Орёл'
@@ -139,6 +140,13 @@ async def on_message(message):
   elif message.content.startswith('!weather'):
        result=Daily_Forecast()
        await client.send_message(message.channel,result)
+
+  elif message.content.startswith('!curs'):
+       if message.content[6:]=='all':
+          curs=Curs_All()
+       else: 
+          curs=Curs()
+       await client.send_message(message.channel, curs)
   
   elif message.content.startswith('!test'):
       await client.send_message(message.channel,':sunny:')

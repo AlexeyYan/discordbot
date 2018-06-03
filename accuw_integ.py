@@ -13,6 +13,10 @@ def Daily_Forecast():
     if icon==1: dayw+=':sunny:'
     elif icon==4: dayw+=' :partly_sunny:'
     elif icon==17: dayw+=':partly_sunny: :thunder_cloud_rain:' 
+    elif icon==14: dayw+=' :white_sun_rain_cloud:'
     nightw=day['Night']['IconPhrase']
+    icon=day['Day']['Icon']
+    if icon==34: nightw+=' :first_quarter_moon_with_face: '
+    
     result=str(date)+'\n'+'Ночью: '+nightw+'\n'+'Днём: '+dayw+'\n'+'Температура в течении суток: '+temperature+u' \u2103'
     return result
