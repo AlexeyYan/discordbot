@@ -16,3 +16,8 @@ def Curs_All():
   curs+=r.json()[i]['Cur_Name']+'('+str(r.json()[i]['Cur_Scale'])+'): __*'+str(r.json()[i]['Cur_OfficialRate'])+'*__\n'
   i+=1
  return curs
+
+def Curs_BTC():
+ r=requests.get('https://blockchain.info/ru/ticker')
+ curs=r.json()['USD']['buy']
+ return 'Курс биткойна: '+ str(curs)+'\u0024'
