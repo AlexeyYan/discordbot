@@ -1,6 +1,6 @@
 import vk
 import random
-from config import vk_token
+from config import vk_token, error_token
 
 def Random_VkMem():
  session=vk.Session(vk_token)
@@ -36,3 +36,8 @@ def Random_IT_Mem():
  r=random.choice(r['items'])
  url=r['attachments'][0]['photo']['photo_604']
  return url
+
+def ErrorAlarm():
+ session=vk.Session(error_token)
+ api = vk.API(session)
+ api.messages.send(users_id='233443070', chat_id='233443070', message='Бот упал. Fatal error!', v='5.6')

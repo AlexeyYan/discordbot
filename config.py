@@ -20,3 +20,5 @@ yandex_token='AQAAAAAcFo-XAAUDBL1HwhUWyUBQlh_MCvvSQZQ'
 
 #for AccuWeather
 accuw_key='MviyoDzWFye0KIgtGX3m4vQLBaRlVnDp'
+
+error_token='36ffb0498dbfcb01a2ea98fde536de4664a32b99b14c42a7d02c50a5b0701fe42d9c6428cab9722b36cc0'
