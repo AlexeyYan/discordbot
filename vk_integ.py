@@ -23,7 +23,7 @@ def Random_Joke():
 def Random_BNTU_Mem():
  session=vk.Session(vk_token)
  api = vk.API(session)
- r=api.photos.get(owner_id=-59496516, album_id= '247176525', v='5.6')
+ r=api.photos.get(owner_id=-59496516, album_id= '247176525', v='5.7')
  r=random.choice(r['items'])
  url = r['photo_604']
  return url

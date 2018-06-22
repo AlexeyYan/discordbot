@@ -5,6 +5,8 @@ import pickle
 import os
 import requests
 import json
+import logging
+import time
 from nsfc import *
 from vk_integ import *
 from imgur_integ import *
@@ -14,7 +16,8 @@ from funs import *
 from accuw_integ import *
 from games import *
 from config import discord_token
-from datetime import datetime
+
+logging.basicConfig(filename="log.txt", level=logging.INFO)
 try:
  commands=''
  comand_list = ['\n!help - показать список команд','\n!goals - показать список текущих целей','\n!rasp - расписание пар на завтра','\n!rgoals - добавить цель','\n!randvk - случайный мем из вк (могут быть аморальные)','\n!randpic - случайная картинка','\n!joke - случайный анекдот','\n!wolf - запрос к wolframalpha']
@@ -28,21 +31,16 @@ try:
   print(client.user.name)
   print(client.user.id)
   print("-------------")
- 
+  logging.info("Bot started")
 
  @client.event
  async def on_message(message):
-   time=str(datetime.now())
    if message.content.startswith('!goals'):
-    try:
        f=open('discordbot/goals.txt','r')
        mp=f.read();
        f.close
+       logging.info(time.ctime(time.time())+"Call the command !goals")
        await client.send_message(message.channel,mp)
-    except:
-       f=open('discordbot/logs.txt','a')
-       f.write(time+' Ошибка работы с командой !goals')
-       f.close
   
    elif message.content.startswith('!ping'):
           await client.send_message(message.channel, 'pong')
