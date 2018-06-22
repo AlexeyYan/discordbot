@@ -85,10 +85,11 @@ try:
    elif message.content.startswith('!randvk'):
         if message.content.startswith('!randvk bntu'):
          mem=Random_BNTU_Mem()
-        if message.content.startswith('!randvk it'):
-         mem=Random_IT_Mem()
         else:
-         mem=Random_VkMem()
+          if message.content.startswith('!randvk it'):
+           mem=Random_IT_Mem()
+          else:
+           mem=Random_VkMem()
         await client.send_message(message.channel,mem)
 
    elif message.content.startswith('!randpic'):
