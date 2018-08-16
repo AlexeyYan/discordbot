@@ -65,22 +65,6 @@ try:
                   i+=1
           else: await client.send_message(message.channel,'Завтра пар нет, гуляем)')
   
-   elif message.content.startswith('!rgoals'):
-        goals_list=[] 
-        username = message.author.name
-        f=open('discordbot/goals.txt','a')
-        goals_list.append(message.content[8:])
-        print('Пользователь ' + username + ' добавил цель:\n- ' + goals_list[0] + ' -')
-        f.write('- '+goals_list[0]+'\n-----------------------\n')
-        f.close
-        if message.server.name== 'Lamp Night':
-         main=message.server.get_channel('425280734614519830')
-        elif message.server.name== 'Bots':
-         main=message.server.get_channel('434344740096442368')
-        #print(main.get_channel('434344740096442368'))
-        await client.send_message(message.channel, 'OK')
-        await client.send_message(main,'Добавлена цель:\n' + goals_list[0],tts=True)
-
    elif message.content.startswith('!randvk'):
         if message.content.startswith('!randvk bntu'):
          mem=Random_BNTU_Mem()
