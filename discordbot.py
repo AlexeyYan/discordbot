@@ -7,7 +7,6 @@ import requests
 import json
 import logging
 import time
-from nsfc import *
 from vk_integ import *
 from imgur_integ import *
 from wolfram_integ import *
@@ -129,14 +128,6 @@ try:
         else: ans = 'Решка'
         await client.send_message(message.channel,'Выпало: '+ans)
  
-   elif message.author.id=='377142726962970634' and message.content.startswith('Я спать'):
-        await client.send_message(message.channel,'Тогда и я пойду')
-   
-   elif message.content.startswith('%nsf'):
-        tag=str(message.content[5:])
-        pic=Search_pic(tag)
-        await client.send_message(message.channel,pic)
-   
    elif message.content.startswith('!weather'):
         result=Daily_Forecast()
         await client.send_message(message.channel,result)
